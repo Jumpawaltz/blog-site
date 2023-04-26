@@ -1,5 +1,5 @@
 <template>
-    <i :class="[`iconfont`, MapClass, `icon-container`]"></i>
+    <i :class="MapClass" class="iconfont icon-container"></i>
 </template>
 
 <script>
@@ -21,18 +21,22 @@ const classMap = {
     arrowDown: "iconiconfonticonfonti2",
     empty: "iconempty",
     chat: "iconliuyan",
-}
+};
+export const types = Object.keys(classMap)
 export default {
     data() {
         return {
+            classMap
         }
     },
     computed: {
         MapClass() {
             return classMap[this.type]
         }
-    }, props: {
+    },
+    props: {
         type: {
+            type: String,
             require: true,
         }
     }
@@ -44,6 +48,8 @@ export default {
 @import "//at.alicdn.com/t/font_2164449_nalfgtq7il.css";
 
 .iconfont {
+    font-size: 1rem;
+    color: red;
     color: inherit;
     font-size: inherit;
 }

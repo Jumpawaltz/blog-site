@@ -1,16 +1,26 @@
 <template>
   <div>
-    <h1>title</h1>
-    <Icon type="blog"></Icon>
+    <Pager :total="total" :current="current" @update:current="handlePageChange($event)"></Pager>
   </div>
 </template>
 
 <script>
-import Icon from './components/Icon.vue';
+import Pager from "./components/Pager/";
 export default {
+  data() {
+    return {
+      total: 120,
+      current: 5,
+    }
+  },
+  methods: {
+    handlePageChange(newPage) {
+      this.current = newPage
+    }
+  },
   name: 'App',
   components: {
-    Icon
+    Pager
   }
 }
 </script>
