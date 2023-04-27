@@ -1,37 +1,36 @@
 <template>
-  <div>
-    <Pager :total="total" :current="current" @update:current="handlePageChange($event)"></Pager>
+  <div class="app-container">
+    <Layout>
+      <template #left>
+        <div class="aside">
+          <SiteAside></SiteAside>
+        </div>
+      </template>
+    </Layout>
   </div>
 </template>
 
 <script>
-import Pager from "./components/Pager/";
+import Layout from "@/components/Layout/";
+import SiteAside from "@/components/SiteAside/";
 export default {
-  data() {
-    return {
-      total: 120,
-      current: 5,
-    }
-  },
-  methods: {
-    handlePageChange(newPage) {
-      this.current = newPage
-    }
-  },
-  name: 'App',
   components: {
-    Pager
-  }
+    Layout,
+    SiteAside,
+  },
+
 }
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="less" scoped>
+@import "~@/styles/mixin.less";
+
+.app-container {
+  .self-fill(fixed);
+}
+
+.aside {
+  width: 250px;
+  height: 100%;
 }
 </style>
